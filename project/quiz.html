@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Which Austin Musical Group...</title>
+<style>
+body {
+  background-color: rgb(162, 143, 217);
+font-family: Helvetica;
+background-image: url('https://th.bing.com/th/id/OIP.8GcJVkinxxyakxAWWFj_4wHaEo?pid=ImgDet&w=474&h=296&rs=1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#main {
+width: 40%;
+border: 5px solid rgb(96, 91, 91);
+margin: auto;
+padding: 50px;
+background-color:white;
+border-radius: 10px;
+}
+
+#header {
+margin-top: 10;
+border: 5px solid rgb(96, 91, 91);
+padding: 5px;
+height: 250px;
+background-image: url('https://t4.ftcdn.net/jpg/03/04/96/23/240_F_304962378_Bux4TKxHopqUp1zRe0y198vLhJLzoR9q.jpg');
+}
+
+#response {
+    display: none;
+}
+
+label {
+width: 200px;
+display: inline-block;
+}
+
+button {
+color:#fff;
+padding: 8px 22px;
+background:#7d2ae8;
+transition: all 0.2s ease;
+}
+
+button:active{
+  transform:scale(0.96);
+}
+
+
+
+</style>
+</head>
+<body>
+<div id="main">
+<div id="header">  <h1 style="color:rgb(68, 84, 55); text-align:center;">&#128312; SIMPLE QUIZZ &#128312;</h1>
+<h3 style="text-align: center; color:rgb(68, 84, 55);">to konw about you better...</h3></div>
+<form  id="form1">
+<p><b>1.Of the following,which one should you put your money toward first?</b><br><br></p>
+<label ><input type="radio" name="priority" id="debt" value="quiet" />Debt</label><br><br>
+<label><input type="radio" name="priority" id="savings" value="spoon" />Emergency-savings</label><br><br>
+<label><input type="radio" name="priority" id="retirement" value="willie" />Retirement</label><br><br>
+
+<p><b>2.How many times a month do you go shopping?</b><br><br></p>
+<label><input type="radio" name="activity" id="0-3" value="quiet" />0-3(only as needed)</label><br><br>
+<label><input type="radio" name="activity" id="4-6" value="spoon" />4-6(i go through my phases)</label><br><br>
+<label><input type="radio"  name="activity" id="7+" value="willie" />7+(it's a way of life)</label><br><br>
+
+<p><b>3.When do you buy new cloths?</b><br><br></p>
+<label><input type="radio" name="genre" id="if1" value="quiet" />Only when i need something </label><br><br>
+<label><input type="radio" name="genre" id="if2" value="spoon" />Any time i can find good stuff on sale</label><br><br>
+<label><input type="radio" name="genre" id="if3" value="willie" />Whenever i see something i like</label><br><br>
+
+<p><b>4.When you see the sign:"Buy one,get one free",do you always have to get something?</b><br><br></p>
+<label><input type="radio" name="choice" id="no" value="quiet" />No</label><br><br>
+<label><input type="radio" name="choice" id="somrtimes" value="spoon" />Sometimes</label><br><br>
+<label><input type="radio" name="choice" id="yes" value="willie" />Yes</label><br><br>
+
+<p><b>5.When you go to grocery shopping?</b><br><br></p>
+<label><input type="radio" name="action" id="c1" value="quiet" />You shop strictly from a list</label><br><br>
+<label><input type="radio" name="action" id="c2" value="spoon" />You stock up anything that's on sale</label><br><br>
+<label><input type="radio" name="action" id="c3" value="willie" />You end up buying twice as much as you expected</label><br><br>
+
+<p><b>6.Do you save your money every month?</b><br><br></p>
+<label><input type="radio" name="question" id="b1" value="quiet" />Yes i always save money</label><br><br>
+<label><input type="radio" name="question" id="b2" value="spoon" />Sometimes</label><br><br>
+<label><input type="radio" name="question" id="b3" value="willie" />Rarely</label><br><br>
+
+<p><b>7.When you are on vacation you...?</b><br><br></p>
+<label><input type="radio" name="done" id="l1" value="quiet" />Don't spend anytime shopping </label><br><br>
+<label><input type="radio" name="done" id="l2" value="spoon" />Hit up the streets looking for deals</label><br><br>
+<label><input type="radio" name="done" id="l3" value="willie" />End up buying so much you practically need a new suitcase</label><br><br>
+
+
+
+
+
+
+
+
+
+<button type="submit" value="Submit">Submit</button>
+</form>
+
+
+<p id="response"><b>YOU GOT : </b><div style="background-color: rgb(228, 185, 146);"><b><span id="answer"></span></b></div></p>
+
+</div>
+
+
+<script>
+
+
+  document.getElementById("form1").onsubmit=function() {
+     //displays the response DOM element
+    document.getElementById("response").style.display = "block";
+
+    //resets the DOM element on submit
+    document.getElementById("answer").innerHTML = "";
+
+    priority = document.querySelector('input[name = "priority"]:checked').value;
+
+
+    activity = document.querySelector('input[name = "activity"]:checked').value;
+
+    genre = document.querySelector('input[name = "genre"]:checked').value;
+
+    choice = document.querySelector('input[name = "choice"]:checked').value;
+
+    action = document.querySelector('input[name = "action"]:checked').values;
+
+    question = document.querySelector('input[name = "question"]:checked').value;
+
+    done = document.querySelector('input[name = "done"]:checked').value;
+
+    
+
+    // initialize score variables
+    quiet = 0;
+    spoon = 0;
+    willie = 0;
+
+    //function to calculate score for each question
+    function eachscore(x){
+    if(x == "quiet") { quiet = quiet + 1}
+    if(x == "spoon") { spoon = spoon + 1}
+    if(x == "willie") { willie = willie + 1}
+    }
+    // for the above function, you could also change the 1 to a variable so you could give more points for certain questions
+
+    //call function for each question
+    eachscore(eval("priority"));
+    eachscore(eval("activity"));
+    eachscore(eval("genre"));
+    eachscore(eval("choice"));
+    eachscore(eval("action"));
+    eachscore(eval("question"));
+    eachscore(eval("done"));
+
+
+
+    all = [quiet, spoon, willie];
+
+  //get the max score  in the array
+  maxscore = Math.max.apply(Math,all);
+
+    // object holding scores and feedback
+    
+    scores = [{index:0, feedback: "You don't shop very often,but when you do,you know exactly what you want and where to find it.you know your spending limits and usally won't buy what you don't need especially if the price isn't right,you know when to indulge in a little luxury when you deserve it."},
+    {index:1, feedback: "Start by looking at your expenses and trim down as much as you possibly can.this may mean going without things you really want,but don't actually need.you can also look at how you can reduce what's left."},
+    {index:2, feedback: "You need to commit to the process of improving your financial situation.consistent action over time,you can pay down debt,build saving habits,and make progress toward financial success."}];
+
+    //figure out which index # holds the max score
+  for(i=0; i<all.length; i++) {
+  if(all[i]==maxscore) {
+    //this gets one answer, the last one it encounters with a match
+    document.getElementById("answer").innerHTML = scores[i].feedback;
+
+    //this version would allow for appending multiple answers; replace statement above
+    //document.getElementById("answer").innerHTML += scores[i].feedback + "; ";
+  }
+  }
+
+return false; // required to not refresh the page; just leave this here
+     }// end the submit function
+
+
+</script>
+
+
+
+
+</body>
+</html>
